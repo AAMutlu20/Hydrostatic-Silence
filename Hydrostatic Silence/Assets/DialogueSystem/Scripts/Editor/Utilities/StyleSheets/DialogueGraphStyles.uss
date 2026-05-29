@@ -1,0 +1,98 @@
+/* ============================================
+   DIALOGUE GRAPH EDITOR - STYLESHEET
+   ============================================ */
+
+/* === GRID BACKGROUND === */
+GridBackground {
+    --grid-background-color: #1e1e1e;
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.3);
+    --spacing: 20;
+}
+
+/* === BASE NODE === */
+.dialogue-node {
+    min-width: 250px;
+    min-height: 100px;
+    background-color: #2b2b2b;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: #3e3e3e;
+}
+
+.dialogue-node:hover {
+    border-color: #606060;
+}
+
+.dialogue-node #title {
+    background-color: rgba(0,0,0,0.5);
+    border-bottom-width: 2px;
+    border-bottom-color: rgba(0,0,0,0.6);
+    padding: 8px;
+    min-height: 32px;
+}
+
+.dialogue-node #title-label {
+    font-size: 14px;
+    -unity-font-style: bold;
+    color: #ffffff;
+}
+
+.dialogue-node #contents {
+    padding: 8px;
+    background-color: #2b2b2b;
+}
+
+/* === PORTS === */
+.port {
+    color: #cccccc;
+    font-size: 11px;
+}
+
+.port .connectorBox {
+    border-radius: 5px;
+    background-color: #44C0E7;
+    width: 10px;
+    height: 10px;
+}
+
+/* === TEXT FIELDS === */
+TextField {
+    margin: 4px 0;
+}
+
+TextField .unity-text-field__input {
+    background-color: #1e1e1e;
+    color: #dddddd;
+    border-color: #555555;
+    border-radius: 3px;
+    padding: 3px 5px;
+}
+
+/* === BUTTONS === */
+Button {
+    background-color: #3a3a3a;
+    color: #dddddd;
+    border-color: #555555;
+    border-radius: 3px;
+    padding: 4px 8px;
+    margin-top: 4px;
+}
+
+Button:hover {
+    background-color: #505050;
+}
+
+/* === MINIMAP === */
+MiniMap {
+    background-color: rgba(30, 30, 30, 0.85);
+    border-color: #555555;
+    border-width: 1px;
+    border-radius: 4px;
+}
+
+/* === EDGES === */
+.edge {
+    --edge-color: #44C0E7;
+    --selected-edge-color: #FFFFFF;
+}
