@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-namespace Shader
+namespace Horror
 {
     /// <summary>
     /// Controls the void viewport shader parameters based on narrative events.
@@ -27,13 +28,13 @@ namespace Shader
         private float targetWake;
         
         // Shader property IDs — cached for performance
-        private static readonly int PropUnease = UnityEngine.Shader.PropertyToID("_Unease");
-        private static readonly int PropAppetite = UnityEngine.Shader.PropertyToID("_Appetite");
-        private static readonly int PropWakeActive = UnityEngine.Shader.PropertyToID("_WakeActive");
-        private static readonly int PropWakePosition = UnityEngine.Shader.PropertyToID("_WakePosition");
-        private static readonly int PropDeepSpeed = UnityEngine.Shader.PropertyToID("_DeepSpeed");
-        private static readonly int PropSurfaceSpeed = UnityEngine.Shader.PropertyToID("_SurfaceSpeed");
-        private static readonly int PropPulseFrequency = UnityEngine.Shader.PropertyToID("_PulseFrequency");
+        private static readonly int PropUnease = Shader.PropertyToID("_Unease");
+        private static readonly int PropAppetite = Shader.PropertyToID("_Appetite");
+        private static readonly int PropWakeActive = Shader.PropertyToID("_WakeActive");
+        private static readonly int PropWakePosition = Shader.PropertyToID("_WakePosition");
+        private static readonly int PropDeepSpeed = Shader.PropertyToID("_DeepSpeed");
+        private static readonly int PropSurfaceSpeed = Shader.PropertyToID("_SurfaceSpeed");
+        private static readonly int PropPulseFrequency = Shader.PropertyToID("_PulseFrequency");
 
         private void Awake()
         {
@@ -101,7 +102,7 @@ namespace Shader
             StartCoroutine(ShearPulse());
         }
 
-        private System.Collections.IEnumerator ShearPulse()
+        private IEnumerator ShearPulse()
         {
             float originalUnease = targetUnease;
             targetUnease = 0.7f;
@@ -186,11 +187,11 @@ namespace Shader
             StartCoroutine(FinalReveal());
         }
 
-        private System.Collections.IEnumerator FinalReveal()
+        private IEnumerator FinalReveal()
         {
             var elapsed = 0f;
             const float duration = 5f;
-            var startIntensity = material.GetFloat(UnityEngine.Shader.PropertyToID("_Intensity"));
+            var startIntensity = material.GetFloat(Shader.PropertyToID("_Intensity"));
             
             while (elapsed < duration)
             {
@@ -200,14 +201,14 @@ namespace Shader
                 // Viewport gets slightly brighter as bridge lights die
                 // Then fades to black with everything else
                 var curve = Mathf.Sin(t * Mathf.PI); // rises then falls
-                material.SetFloat(UnityEngine.Shader.PropertyToID("_Intensity"),
+                material.SetFloat(Shader.PropertyToID("_Intensity"),
                     startIntensity + curve * 0.15f);
                 
                 yield return null;
             }
             
             // Final: everything dark
-            material.SetFloat(UnityEngine.Shader.PropertyToID("_Intensity"), 0f);
+            material.SetFloat(Shader.PropertyToID("_Intensity"), 0f);
         }
 
         /// <summary>

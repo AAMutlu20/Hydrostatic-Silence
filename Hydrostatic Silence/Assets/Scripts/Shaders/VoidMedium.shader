@@ -6,12 +6,12 @@ Shader "HydrostaticSilence/VoidMedium"
         _BaseColor ("Base Color", Color) = (0.005, 0.005, 0.012, 1)
         _Intensity ("Overall Intensity", Range(0, 1)) = 0.3
         
-        [Header(Deep Layer - Slow Movement)]
+        [Header(Deep Layer)]
         _DeepScale ("Deep Noise Scale", Range(0.5, 5)) = 1.2
         _DeepSpeed ("Deep Noise Speed", Range(0, 0.1)) = 0.008
         _DeepStrength ("Deep Layer Strength", Range(0, 0.03)) = 0.008
         
-        [Header(Surface Layer - Faster Texture)]
+        [Header(Surface Layer)]
         _SurfaceScale ("Surface Noise Scale", Range(1, 20)) = 6.0
         _SurfaceSpeed ("Surface Noise Speed", Range(0, 0.3)) = 0.04
         _SurfaceStrength ("Surface Layer Strength", Range(0, 0.02)) = 0.004
