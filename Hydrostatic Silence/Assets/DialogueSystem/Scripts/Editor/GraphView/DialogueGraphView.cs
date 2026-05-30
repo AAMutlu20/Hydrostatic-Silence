@@ -7,10 +7,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using DialogueSystem.Scripts.Data.Core;
 using DialogueSystem.Scripts.Data.Nodes;
-using DialogueSystem.Scripts.Data.Supporting.Enums;
-using DialogueSystem.Scripts.Editor.GraphView;
-using DialogueSystem.Scripts.Editor.Nodes;
 using DialogueSystem.Scripts.Editor.Windows;
+// ReSharper disable CollectionNeverQueried.Local
+#pragma warning disable CS0618
+// ReSharper disable NotAccessedField.Local
 
 namespace DialogueSystem.Scripts.Editor.GraphView
 {
@@ -223,4 +223,5 @@ namespace DialogueSystem.Scripts.Editor.GraphView
         }
     }
 }
+#pragma warning restore CS0618
 #endif
